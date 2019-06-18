@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.DetailActivity">
+
+    <ImageView
+        android:id="@+id/iv_thumbnail_d"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <TextView
+        android:id="@+id/tv_judul_d"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Judul"/>
+
+    <TextView
+        android:id="@+id/tv_author_d"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Author"/>
+
+    <TextView
+        android:id="@+id/tv_tanggal_d"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tanggal"/>
+
+    <TextView
+        android:id="@+id/tv_berita_d"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Berita"/>
+</LinearLayout>

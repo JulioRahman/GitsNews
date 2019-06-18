@@ -1,7 +1,8 @@
 package com.julio.gitsnews.activity;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -13,7 +14,6 @@ import com.julio.gitsnews.rests.APIClient;
 import com.julio.gitsnews.rests.APIInterface;
 import com.julio.gitsnews.utils.OnRecyclerViewItemClickListener;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -21,8 +21,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-    List<BeritaModel> beritaModelList = new ArrayList<>();
-
     BeritaAdapter beritaAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,16 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mainRecycler.setLayoutManager(linearLayoutManager);
-        beritaAdapter = new BeritaAdapter(beritaModelList, new OnRecyclerViewItemClickListener() {
-            @Override
-            public void onPositionClicked(int position) {
-            }
 
-            @Override
-            public void onLongClicked(int position) {
-
-            }
-        });
 
         final APIInterface apiService = APIClient.getClient().create(APIInterface.class);
         Log.d("uwu", "onCreate: "+apiService.toString());
@@ -53,9 +42,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<BeritaModel>> call, Response<List<BeritaModel>> response) {
                 List<BeritaModel> beritaModelList = response.body();
+                beritaAdapter = new BeritaAdapter(beritaModelList, new OnRecyclerViewItemClickListener() {
+                    @Override
+                    public void onPositionClicked(int position) {
+                        Intent i = new Intent(getApplicationContext(), DetailActivity.class);
+                        i.putExtra("id", String.valueOf(position));
+                        startActivity(i);
+                    }
+
+                    @Override
+                    public void onLongClicked(int position) {
+
+                    }
+                });
 
                 mainRecycler.setAdapter(beritaAdapter);
-                Log.d("wadidaw", "onResponse: "+beritaModelList.get(1).getAuthor());
+                Log.d("wadidaw", "onResponse: "+beritaModelList.get(1).getThumbnail());
             }
 
             @Override

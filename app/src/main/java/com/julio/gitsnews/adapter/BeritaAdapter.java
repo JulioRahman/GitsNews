@@ -1,7 +1,6 @@
 package com.julio.gitsnews.adapter;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -10,12 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.julio.gitsnews.R;
 import com.julio.gitsnews.model.BeritaModel;
-import com.julio.gitsnews.model.ListBeritaModel;
 import com.julio.gitsnews.utils.OnRecyclerViewItemClickListener;
 
 import java.lang.ref.WeakReference;
@@ -24,6 +22,7 @@ import java.util.List;
 public class BeritaAdapter extends RecyclerView.Adapter<BeritaAdapter.ViewHolder> {
     private List<BeritaModel> beritaArrayList;
     private Context context;
+    private String thumb;
     private OnRecyclerViewItemClickListener onRecyclerViewItemClickListener;
 
     public BeritaAdapter(List<BeritaModel> beritaArrayList, OnRecyclerViewItemClickListener onRecyclerViewItemClickListener) {
@@ -34,7 +33,7 @@ public class BeritaAdapter extends RecyclerView.Adapter<BeritaAdapter.ViewHolder
     @Override
     public BeritaAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_berita, viewGroup, false);
-        return new BeritaAdapter.ViewHolder(view);
+        return new BeritaAdapter.ViewHolder(view, onRecyclerViewItemClickListener);
     }
     @Override
     public void onBindViewHolder(BeritaAdapter.ViewHolder viewHolder, int position) {
@@ -53,8 +52,17 @@ public class BeritaAdapter extends RecyclerView.Adapter<BeritaAdapter.ViewHolder
             viewHolder.tvTanggal.setText(beritaModel.getTanggal());
         }
         if(!TextUtils.isEmpty(beritaModel.getThumbnail())) {
-            //belum
+            thumb = beritaModel.getThumbnail();
         }
+
+//        viewHolder.cvItemBerita.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(getApplicationContext(), DetailActivity.class);
+//                i.putExtra("id", String.valueOf(position));
+//                startActivity(i);
+//            }
+//        });
     }
     @Override
     public int getItemCount() {
@@ -66,15 +74,22 @@ public class BeritaAdapter extends RecyclerView.Adapter<BeritaAdapter.ViewHolder
         private CardView cvItemBerita;
         private WeakReference<OnRecyclerViewItemClickListener> listenerRef;
 
-        ViewHolder(View view) {
+        ViewHolder(View view, OnRecyclerViewItemClickListener listener) {
             super(view);
+
+            listenerRef = new WeakReference<>(listener);
             tvJudul = view.findViewById(R.id.tv_judul);
             tvReview = view.findViewById(R.id.tv_review);
             tvAuthor = view.findViewById(R.id.tv_author);
             tvTanggal = view.findViewById(R.id.tv_tanggal);
             cvItemBerita = view.findViewById(R.id.cv_item_berita);
+            ivThumbnail = view.findViewById(R.id.iv_thumbnail);
 
             cvItemBerita.setOnClickListener(this);
+
+            Glide.with(view)
+                    .load(thumb)
+                    .into(ivThumbnail);
         }
 
         @Override
