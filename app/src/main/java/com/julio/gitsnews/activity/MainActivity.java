@@ -1,7 +1,9 @@
-package com.julio.gitsnews;
+package com.julio.gitsnews.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.julio.gitsnews.R;
 
 public class MainActivity extends AppCompatActivity {
 
