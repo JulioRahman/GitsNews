@@ -1,5 +1,7 @@
 package com.julio.gitsnews.utils;
 
 public interface OnRecyclerViewItemClickListener {
-    publi''
+    void onPositionClicked(int position);
+
+    void onLongClicked(int position);
 }

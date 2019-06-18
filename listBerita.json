@@ -1,0 +1,31 @@
+{
+    "list": [
+        {
+            "idBerita": "1",
+            "kategori": "teknologi",
+            "judul": "Beredar Wujud Ponsel-ponsel di Huawei Seri Nova 5",
+            "author": "detikInet",
+            "tanggal": "Selasa, 18 Jun 2019 07:29 WIB",
+            "thumbnail": "https://akcdn.detik.net.id/community/media/visual/2019/06/17/e0bb69be-fe3c-45b8-9087-e8e49cde8659_169.jpeg",
+            "review": "Ini adalah review"
+        },
+		{
+            "idBerita": "2",
+            "kategori": "teknologi",
+            "judul": "Beredar Wujud Ponsel-ponsel di Huawei Seri Nova 5",
+            "author": "detikInet",
+            "tanggal": "Selasa, 18 Jun 2019 07:29 WIB",
+            "thumbnail": "https://akcdn.detik.net.id/community/media/visual/2019/06/17/e0bb69be-fe3c-45b8-9087-e8e49cde8659_169.jpeg",
+            "review": "Ini adalah review"
+        },
+		{
+            "idBerita": "3",
+            "kategori": "teknologi",
+            "judul": "Beredar Wujud Ponsel-ponsel di Huawei Seri Nova 5",
+            "author": "detikInet",
+            "tanggal": "Selasa, 18 Jun 2019 07:29 WIB",
+            "thumbnail": "https://akcdn.detik.net.id/community/media/visual/2019/06/17/e0bb69be-fe3c-45b8-9087-e8e49cde8659_169.jpeg",
+            "review": "Ini adalah review"
+        }
+    ]
+}

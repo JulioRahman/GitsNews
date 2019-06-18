@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,15 +18,19 @@ import com.julio.gitsnews.model.BeritaModel;
 import com.julio.gitsnews.model.ListBeritaModel;
 import com.julio.gitsnews.utils.OnRecyclerViewItemClickListener;
 
+import java.lang.ref.WeakReference;
 import java.util.List;
 
 public class BeritaAdapter extends RecyclerView.Adapter<BeritaAdapter.ViewHolder> {
     private List<BeritaModel> beritaArrayList;
     private Context context;
     private OnRecyclerViewItemClickListener onRecyclerViewItemClickListener;
-    public BeritaAdapter(List<BeritaModel> beritaArrayList) {
+
+    public BeritaAdapter(List<BeritaModel> beritaArrayList, OnRecyclerViewItemClickListener onRecyclerViewItemClickListener) {
         this.beritaArrayList = beritaArrayList;
+        this.onRecyclerViewItemClickListener = onRecyclerViewItemClickListener;
     }
+
     @Override
     public BeritaAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_berita, viewGroup, false);
@@ -34,6 +39,7 @@ public class BeritaAdapter extends RecyclerView.Adapter<BeritaAdapter.ViewHolder
     @Override
     public void onBindViewHolder(BeritaAdapter.ViewHolder viewHolder, int position) {
         final BeritaModel beritaModel = beritaArrayList.get(position);
+        Log.d("kenapa susah", "onBindViewHolder: "+beritaModel);
         if(!TextUtils.isEmpty(beritaModel.getJudul())) {
             viewHolder.tvJudul.setText(beritaModel.getJudul());
         }
@@ -54,10 +60,12 @@ public class BeritaAdapter extends RecyclerView.Adapter<BeritaAdapter.ViewHolder
     public int getItemCount() {
         return beritaArrayList.size();
     }
-    class ViewHolder extends RecyclerView.ViewHolder{
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private ImageView ivThumbnail;
         private TextView tvJudul, tvReview, tvAuthor, tvTanggal;
         private CardView cvItemBerita;
+        private WeakReference<OnRecyclerViewItemClickListener> listenerRef;
+
         ViewHolder(View view) {
             super(view);
             tvJudul = view.findViewById(R.id.tv_judul);
@@ -65,14 +73,13 @@ public class BeritaAdapter extends RecyclerView.Adapter<BeritaAdapter.ViewHolder
             tvAuthor = view.findViewById(R.id.tv_author);
             tvTanggal = view.findViewById(R.id.tv_tanggal);
             cvItemBerita = view.findViewById(R.id.cv_item_berita);
-            cvItemBerita.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (onRecyclerViewItemClickListener != null) {
-                        onRecyclerViewItemClickListener.onItemClick(getAdapterPosition(), view);
-                    }
-                }
-            });
+
+            cvItemBerita.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            listenerRef.get().onPositionClicked(getAdapterPosition());
         }
     }
 }

@@ -9,10 +9,11 @@ import android.util.Log;
 import com.julio.gitsnews.R;
 import com.julio.gitsnews.adapter.BeritaAdapter;
 import com.julio.gitsnews.model.BeritaModel;
-import com.julio.gitsnews.model.ListBeritaModel;
 import com.julio.gitsnews.rests.APIClient;
 import com.julio.gitsnews.rests.APIInterface;
+import com.julio.gitsnews.utils.OnRecyclerViewItemClickListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -20,7 +21,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
+    List<BeritaModel> beritaModelList = new ArrayList<>();
 
+    BeritaAdapter beritaAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,25 +33,34 @@ public class MainActivity extends AppCompatActivity {
 
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mainRecycler.setLayoutManager(linearLayoutManager);
-
-        final APIInterface apiService = APIClient.getClient().create(APIInterface.class);
-
-        Call<ListBeritaModel> call = apiService.getNewsList();
-
-        call.enqueue(new Callback<ListBeritaModel>() {
+        beritaAdapter = new BeritaAdapter(beritaModelList, new OnRecyclerViewItemClickListener() {
             @Override
-            public void onResponse(Call<ListBeritaModel> call, Response<ListBeritaModel> response) {
-                List<BeritaModel> beritaList = response.body().getListBeritaModels();
-                if(beritaList.size()>0) {
-                    final BeritaAdapter beritaAdapter = new BeritaAdapter(beritaList);
-                    //beritaAdapter.setOnRecyclerViewItemClickListener(MainActivity.this);
-                    mainRecycler.setAdapter(beritaAdapter);
-                }
+            public void onPositionClicked(int position) {
             }
 
             @Override
-            public void onFailure(Call<ListBeritaModel> call, Throwable t) {
-                Log.e("out", t.toString());
+            public void onLongClicked(int position) {
+
+            }
+        });
+
+        final APIInterface apiService = APIClient.getClient().create(APIInterface.class);
+        Log.d("uwu", "onCreate: "+apiService.toString());
+        Call<List<BeritaModel>> call = apiService.getNewsList();
+        Log.d("uwu", "onCreate: hilih"+call.toString());
+        call.enqueue(new Callback<List<BeritaModel>>() {
+
+            @Override
+            public void onResponse(Call<List<BeritaModel>> call, Response<List<BeritaModel>> response) {
+                List<BeritaModel> beritaModelList = response.body();
+
+                mainRecycler.setAdapter(beritaAdapter);
+                Log.d("wadidaw", "onResponse: "+beritaModelList.get(1).getAuthor());
+            }
+
+            @Override
+            public void onFailure(Call<List<BeritaModel>> call, Throwable t) {
+                Log.d("mamaku", "onFailure: "+t.toString());
             }
         });
     }
