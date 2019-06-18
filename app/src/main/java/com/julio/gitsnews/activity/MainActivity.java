@@ -1,6 +1,5 @@
 package com.julio.gitsnews.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,7 +11,6 @@ import com.julio.gitsnews.adapter.BeritaAdapter;
 import com.julio.gitsnews.model.BeritaModel;
 import com.julio.gitsnews.rests.APIClient;
 import com.julio.gitsnews.rests.APIInterface;
-import com.julio.gitsnews.utils.OnRecyclerViewItemClickListener;
 
 import java.util.List;
 
@@ -42,19 +40,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<BeritaModel>> call, Response<List<BeritaModel>> response) {
                 List<BeritaModel> beritaModelList = response.body();
-                beritaAdapter = new BeritaAdapter(beritaModelList, new OnRecyclerViewItemClickListener() {
-                    @Override
-                    public void onPositionClicked(int position) {
-                        Intent i = new Intent(getApplicationContext(), DetailActivity.class);
-                        i.putExtra("id", String.valueOf(position));
-                        startActivity(i);
-                    }
-
-                    @Override
-                    public void onLongClicked(int position) {
-
-                    }
-                });
+                beritaAdapter = new BeritaAdapter(getApplicationContext(), beritaModelList);
+//                beritaAdapter = new BeritaAdapter(beritaModelList, new OnRecyclerViewItemClickListener() {
+//                    @Override
+//                    public void onPositionClicked(int position) {
+//                        Intent i = new Intent(getApplicationContext(), DetailActivity.class);
+//                        i.putExtra("id", String.valueOf(position));
+//                        startActivity(i);
+//                    }
+//
+//                    @Override
+//                    public void onLongClicked(int position) {
+//
+//                    }
+//                });
 
                 mainRecycler.setAdapter(beritaAdapter);
                 Log.d("wadidaw", "onResponse: "+beritaModelList.get(1).getThumbnail());
