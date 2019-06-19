@@ -14,6 +14,10 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.daimajia.slider.library.Animations.DescriptionAnimation;
+import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.SliderTypes.BaseSliderView;
+import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.julio.gitsnews.FeedbackActivity;
 import com.julio.gitsnews.R;
 import com.julio.gitsnews.adapter.BeritaAdapter;
@@ -22,6 +26,7 @@ import com.julio.gitsnews.rests.APIClient;
 import com.julio.gitsnews.rests.APIInterface;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import retrofit2.Call;
@@ -33,6 +38,7 @@ public class SidebarActivity extends AppCompatActivity
 
     BeritaAdapter beritaAdapter;
     private String kategori;
+    private SliderLayout slSlider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,14 +61,15 @@ public class SidebarActivity extends AppCompatActivity
             kategori = "home";
         }
 
+        slSlider = (SliderLayout) findViewById(R.id.slider);
+        final HashMap<String,String> url_maps = new HashMap<String, String>();
+
         final RecyclerView mainRecycler = findViewById(R.id.activity_main_rv);
 
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mainRecycler.setLayoutManager(linearLayoutManager);
 
-
         final APIInterface apiService = APIClient.getClient().create(APIInterface.class);
-        Log.d("uwu", "onCreate: "+apiService.toString());
         Call<List<BeritaModel>> call = apiService.getNewsList();
 
         if (kategori.equals("home")) {
@@ -81,6 +88,27 @@ public class SidebarActivity extends AppCompatActivity
                 beritaModelList.clear();
                 beritaModelList = response.body();
                 beritaAdapter = new BeritaAdapter(getApplicationContext(), beritaModelList);
+
+                for (int i = 0; i < 3; i++) {
+                    url_maps.put(beritaModelList.get(i).getJudul(), beritaModelList.get(i).getThumbnail());
+                }
+
+                for(String name : url_maps.keySet()){
+                    TextSliderView textSliderView = new TextSliderView(getApplicationContext());
+                    // initialize a SliderLayout
+                    textSliderView
+                            .description(name)
+                            .image(url_maps.get(name))
+                            .setScaleType(BaseSliderView.ScaleType.Fit);
+
+                    //add your extra information
+                    textSliderView.bundle(new Bundle());
+                    textSliderView.getBundle()
+                            .putString("extra",name);
+
+                    slSlider.addSlider(textSliderView);
+                }
+
 //                beritaAdapter = new BeritaAdapter(beritaModelList, new OnRecyclerViewItemClickListener() {
 //                    @Override
 //                    public void onPositionClicked(int position) {
@@ -104,6 +132,11 @@ public class SidebarActivity extends AppCompatActivity
                 Log.d("mamaku", "onFailure: "+t.toString());
             }
         });
+
+        slSlider.setPresetTransformer(SliderLayout.Transformer.Default);
+        slSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
+        slSlider.setCustomAnimation(new DescriptionAnimation());
+        slSlider.setDuration(4000);
     }
 
     @Override
@@ -149,5 +182,12 @@ public class SidebarActivity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    protected void onStop() {
+        // To prevent a memory leak on rotation, make sure to call stopAutoCycle() on the slider before activity or fragment is destroyed
+        slSlider.stopAutoCycle();
+        super.onStop();
     }
 }

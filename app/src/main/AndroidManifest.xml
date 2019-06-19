@@ -25,10 +25,7 @@
         <activity
             android:name=".activity.SidebarActivity"
             android:label="@string/title_activity_sidebar"
-            android:theme="@style/AppTheme.NoActionBar">
-            android:theme="@style/SplashTheme"></activity>
-        <activity android:name=".activity.MainActivity">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".activity.AboutActivity"
             android:parentActivityName=".activity.SidebarActivity">
