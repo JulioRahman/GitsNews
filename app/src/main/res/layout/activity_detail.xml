@@ -1,44 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_margin="16dp"
     tools:context=".activity.DetailActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="16dp">
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/iv_thumbnail_d"
-            android:layout_width="match_parent"
-            android:layout_height="200dp" />
-
-        <TextView
-            android:id="@+id/tv_judul_d"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Judul" />
+            android:orientation="vertical"
+            android:weightSum="10">
 
-        <TextView
-            android:id="@+id/tv_author_d"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Author" />
+            <ImageView
+                android:id="@+id/iv_thumbnail_d"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3.5"
+                android:src="@drawable/ic_launcher_background" />
 
-        <TextView
-            android:id="@+id/tv_tanggal_d"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tanggal" />
+            <TextView
+                android:id="@+id/tv_judul_d"
+                style="@style/TextAppearance.AppCompat.Large"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Judul"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tv_berita_d"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Berita" />
-    </LinearLayout>
-</ScrollView>
+            <TextView
+                android:id="@+id/tv_author_d"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Author" />
+
+            <TextView
+                android:id="@+id/tv_tanggal_d"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Tanggal" />
+
+            <TextView
+                android:id="@+id/tv_berita_d"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:text="Berita"
+                android:textColor="#000000" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
