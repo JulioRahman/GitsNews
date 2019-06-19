@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.julio.gitsnews.R;
@@ -12,6 +13,7 @@ import com.julio.gitsnews.model.BeritaModel;
 import com.julio.gitsnews.rests.APIClient;
 import com.julio.gitsnews.rests.APIInterface;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -20,10 +22,18 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     BeritaAdapter beritaAdapter;
+    private String kategori;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if(!TextUtils.isEmpty(kategori)) {
+            kategori = getIntent().getStringExtra("kategori");
+        } else {
+            kategori = "home";
+        }
 
         final RecyclerView mainRecycler = findViewById(R.id.activity_main_rv);
 
@@ -34,12 +44,22 @@ public class MainActivity extends AppCompatActivity {
         final APIInterface apiService = APIClient.getClient().create(APIInterface.class);
         Log.d("uwu", "onCreate: "+apiService.toString());
         Call<List<BeritaModel>> call = apiService.getNewsList();
-        Log.d("uwu", "onCreate: hilih"+call.toString());
+
+        if (kategori.equals("home")) {
+            call = apiService.getNewsList();
+            Log.d("uwu", "onCreate: hilih"+call.toString());
+        } else {
+            call = apiService.getNewsCategory(kategori);
+            Log.d("uwu", "onCreate: hilih"+call.toString());
+        }
+
         call.enqueue(new Callback<List<BeritaModel>>() {
 
             @Override
             public void onResponse(Call<List<BeritaModel>> call, Response<List<BeritaModel>> response) {
-                List<BeritaModel> beritaModelList = response.body();
+                List<BeritaModel> beritaModelList = new ArrayList<>();
+                beritaModelList.clear();
+                beritaModelList = response.body();
                 beritaAdapter = new BeritaAdapter(getApplicationContext(), beritaModelList);
 //                beritaAdapter = new BeritaAdapter(beritaModelList, new OnRecyclerViewItemClickListener() {
 //                    @Override
