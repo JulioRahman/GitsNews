@@ -11,20 +11,18 @@
 
 
         <item
-            android:id="@+id/nav_kategori"
-            android:icon="@drawable/ic_menu_home"
             android:title="Kategori" >
             <menu>
                 <item
-                    android:id="@+id/nav_kategori1"
+                    android:id="@+id/nav_k_teknologi"
                     android:icon="@drawable/ic_menu_teknologi"
                     android:title="Teknologi" />
                 <item
-                    android:id="@+id/nav_kategori2"
+                    android:id="@+id/nav_k_gadget"
                     android:icon="@drawable/ic_phone_android_black_24dp"
                     android:title="Gadget" />
                 <item
-                    android:id="@+id/nav_kategori3"
+                    android:id="@+id/nav_k_motivasi"
                     android:icon="@drawable/ic_menu_motivasi"
                     android:title="Motivasi" />
             </menu>
@@ -39,7 +37,7 @@
                 android:icon="@drawable/ic_receipt_black_24dp"
                 android:title="Feedback" />
             <item
-                android:id="@+id/nav_gallery"
+                android:id="@+id/nav_about"
                 android:icon="@drawable/ic_menu_info"
                 android:title="@string/menu_about" />
         </menu>

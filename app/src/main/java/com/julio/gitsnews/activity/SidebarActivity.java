@@ -14,6 +14,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.julio.gitsnews.FeedbackActivity;
 import com.julio.gitsnews.R;
 import com.julio.gitsnews.adapter.BeritaAdapter;
 import com.julio.gitsnews.model.BeritaModel;
@@ -125,7 +126,7 @@ public class SidebarActivity extends AppCompatActivity
             Intent i= new Intent(SidebarActivity.this, SidebarActivity.class);
             i.putExtra("kategori", "home");
             startActivity(i);
-        }  else if (id == R.id.nav_about) {
+        } else if (id == R.id.nav_about) {
             Intent i= new Intent(SidebarActivity.this, AboutActivity.class);
             startActivity(i);
         } else if (id == R.id.nav_k_teknologi) {
@@ -139,6 +140,9 @@ public class SidebarActivity extends AppCompatActivity
         } else if (id == R.id.nav_k_motivasi) {
             Intent i= new Intent(SidebarActivity.this, SidebarActivity.class);
             i.putExtra("kategori", "motivasi");
+            startActivity(i);
+        } else if (id == R.id.nav_feedback) {
+            Intent i= new Intent(SidebarActivity.this, FeedbackActivity.class);
             startActivity(i);
         }
 
