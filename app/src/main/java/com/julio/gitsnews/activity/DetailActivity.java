@@ -50,6 +50,7 @@ public class DetailActivity extends AppCompatActivity {
                 tvAuthorD.setText(detailModel.getAuthor());
                 tvTanggalD.setText(detailModel.getTanggal());
                 tvBeritaD.setText(detailModel.getBerita());
+                Log.e("liat", detailModel.getBerita());
             }
 
             @Override

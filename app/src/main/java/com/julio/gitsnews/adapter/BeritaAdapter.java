@@ -53,6 +53,9 @@ public class BeritaAdapter extends RecyclerView.Adapter<BeritaAdapter.ViewHolder
         if(!TextUtils.isEmpty(beritaModel.getTanggal())) {
             viewHolder.tvTanggal.setText(beritaModel.getTanggal());
         }
+        if(!TextUtils.isEmpty(beritaModel.getKategori())) {
+            viewHolder.tvKategori.setText(beritaModel.getKategori());
+        }
         if(!TextUtils.isEmpty(beritaModel.getThumbnail())) {
             Glide.with(context)
                     .load(beritaModel.getThumbnail())
@@ -76,7 +79,7 @@ public class BeritaAdapter extends RecyclerView.Adapter<BeritaAdapter.ViewHolder
 
     class ViewHolder extends RecyclerView.ViewHolder /*implements View.OnClickListener*/{
         private ImageView ivThumbnail;
-        private TextView tvJudul, tvReview, tvAuthor, tvTanggal;
+        private TextView tvJudul, tvReview, tvAuthor, tvTanggal, tvKategori;
         private CardView cvItemBerita;
         private WeakReference<OnRecyclerViewItemClickListener> listenerRef;
 
@@ -88,8 +91,8 @@ public class BeritaAdapter extends RecyclerView.Adapter<BeritaAdapter.ViewHolder
             tvReview = view.findViewById(R.id.tv_review);
             tvAuthor = view.findViewById(R.id.tv_author);
             tvTanggal = view.findViewById(R.id.tv_tanggal);
+            tvKategori = view.findViewById(R.id.tv_kategori);
             cvItemBerita = view.findViewById(R.id.cv_item_berita);
-<<<<<<< HEAD
             cvItemBerita.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -98,11 +101,9 @@ public class BeritaAdapter extends RecyclerView.Adapter<BeritaAdapter.ViewHolder
                     }
                 }
             });
-=======
             ivThumbnail = view.findViewById(R.id.iv_thumbnail);
 
 //            cvItemBerita.setOnClickListener(this);
->>>>>>> origin
         }
 
 //        @Override

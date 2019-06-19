@@ -8,5 +8,8 @@
     tools:context=".activity.SidebarActivity"
     tools:showIn="@layout/app_bar_sidebar">
 
-
-</android.support.constraint.ConstraintLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/activity_main_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

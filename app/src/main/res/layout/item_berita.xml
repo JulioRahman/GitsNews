@@ -17,7 +17,8 @@
         <ImageView
             android:id="@+id/iv_thumbnail"
             android:layout_width="100dp"
-            android:layout_height="100dp" />
+            android:layout_height="100dp"
+            android:paddingEnd="8dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,6 +29,8 @@
                 android:id="@+id/tv_judul"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
                 android:text="Title"/>
 
             <TextView
@@ -47,6 +50,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Tanggal"/>
+
+            <TextView
+                android:id="@+id/tv_kategori"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FF0000"
+                android:text="Kategori"/>
         </LinearLayout>
 
     </LinearLayout>
