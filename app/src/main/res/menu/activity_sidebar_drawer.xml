@@ -9,10 +9,7 @@
             android:icon="@drawable/ic_menu_home"
             android:title="@string/menu_home" />
 
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_info"
-            android:title="@string/menu_about" />
+
         <item
             android:id="@+id/nav_kategori"
             android:icon="@drawable/ic_menu_home"
@@ -31,6 +28,21 @@
                     android:icon="@drawable/ic_menu_motivasi"
                     android:title="Motivasi" />
             </menu>
+        </item>
+
+    </group>
+    <group android:checkableBehavior="single">
+        <item android:title="Other">
+        <menu>
+            <item
+                android:id="@+id/nav_feedback"
+                android:icon="@drawable/ic_receipt_black_24dp"
+                android:title="Feedback" />
+            <item
+                android:id="@+id/nav_gallery"
+                android:icon="@drawable/ic_menu_info"
+                android:title="@string/menu_about" />
+        </menu>
         </item>
 
     </group>
