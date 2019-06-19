@@ -89,7 +89,6 @@ public class BeritaAdapter extends RecyclerView.Adapter<BeritaAdapter.ViewHolder
             tvAuthor = view.findViewById(R.id.tv_author);
             tvTanggal = view.findViewById(R.id.tv_tanggal);
             cvItemBerita = view.findViewById(R.id.cv_item_berita);
-<<<<<<< HEAD
             cvItemBerita.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -98,11 +97,9 @@ public class BeritaAdapter extends RecyclerView.Adapter<BeritaAdapter.ViewHolder
                     }
                 }
             });
-=======
             ivThumbnail = view.findViewById(R.id.iv_thumbnail);
 
 //            cvItemBerita.setOnClickListener(this);
->>>>>>> origin
         }
 
 //        @Override

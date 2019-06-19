@@ -10,24 +10,23 @@
             android:title="@string/menu_home" />
 
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_about"
             android:icon="@drawable/ic_menu_info"
             android:title="@string/menu_about" />
+
         <item
-            android:id="@+id/nav_kategori"
-            android:icon="@drawable/ic_menu_home"
-            android:title="Kategori" >
+            android:title="Kategori Berita" >
             <menu>
                 <item
-                    android:id="@+id/nav_kategori1"
+                    android:id="@+id/nav_k_teknologi"
                     android:icon="@drawable/ic_menu_share"
                     android:title="Teknologi" />
                 <item
-                    android:id="@+id/nav_kategori2"
+                    android:id="@+id/nav_k_gadget"
                     android:icon="@drawable/ic_menu_send"
                     android:title="Gadget" />
                 <item
-                    android:id="@+id/nav_kategori3"
+                    android:id="@+id/nav_k_motivasi"
                     android:icon="@drawable/ic_menu_send"
                     android:title="Motivasi" />
             </menu>

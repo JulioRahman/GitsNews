@@ -14,18 +14,7 @@
         <activity android:name=".activity.DetailActivity"></activity>
         <activity
             android:name=".splash.SplashActivity"
-<<<<<<< HEAD
             android:theme="@style/SplashTheme">
-
-        </activity>
-        <activity
-            android:name=".activity.SidebarActivity"
-            android:label="@string/title_activity_sidebar"
-            android:theme="@style/AppTheme.NoActionBar">
-=======
-            android:theme="@style/SplashTheme"></activity>
-        <activity android:name=".activity.MainActivity">
->>>>>>> origin
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,11 +22,16 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".activity.SidebarActivity"
+            android:label="@string/title_activity_sidebar"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".activity.MainActivity"/>
+        <activity
             android:name=".activity.AboutActivity"
             android:parentActivityName=".activity.SidebarActivity">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".activity.SidebarActivity"/>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.SidebarActivity"/>
         </activity>
     </application>
 
