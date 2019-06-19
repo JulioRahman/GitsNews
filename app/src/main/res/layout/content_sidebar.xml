@@ -8,4 +8,5 @@
     tools:context=".activity.SidebarActivity"
     tools:showIn="@layout/app_bar_sidebar">
 
+
 </android.support.constraint.ConstraintLayout>
