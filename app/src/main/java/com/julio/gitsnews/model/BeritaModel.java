@@ -6,8 +6,8 @@ public class BeritaModel {
     @SerializedName("idBerita")
     private String idBerita;
 
-    @SerializedName("idKategori")
-    private String idKategori;
+    @SerializedName("kategori")
+    private String kategori;
 
     @SerializedName("judul")
     private String judul;
@@ -32,12 +32,12 @@ public class BeritaModel {
         this.idBerita = idBerita;
     }
 
-    public String getIdKategori() {
-        return idKategori;
+    public String getKategori() {
+        return kategori;
     }
 
-    public void setIdKategori(String idKategori) {
-        this.idKategori = idKategori;
+    public void setKategori(String kategori) {
+        this.kategori = kategori;
     }
 
     public String getJudul() {

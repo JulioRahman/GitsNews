@@ -6,7 +6,7 @@ public class DetailModel {
     @SerializedName("idBerita")
     private String idBerita;
 
-    @SerializedName("idKategori")
+    @SerializedName("kategori")
     private String idKategori;
 
     @SerializedName("judul")
@@ -21,8 +21,8 @@ public class DetailModel {
     @SerializedName("thumbnail")
     private String thumbnail;
 
-    @SerializedName("review")
-    private String review;
+    @SerializedName("berita")
+    private String berita;
 
     public String getIdBerita() {
         return idBerita;
@@ -72,11 +72,11 @@ public class DetailModel {
         this.thumbnail = thumbnail;
     }
 
-    public String getReview() {
-        return review;
+    public String getBerita() {
+        return berita;
     }
 
-    public void setReview(String review) {
-        this.review = review;
+    public void setBerita(String berita) {
+        this.berita = berita;
     }
 }
