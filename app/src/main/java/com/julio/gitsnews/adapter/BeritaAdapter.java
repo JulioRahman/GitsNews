@@ -69,10 +69,11 @@ public class BeritaAdapter extends RecyclerView.Adapter<BeritaAdapter.ViewHolder
                 @Override
                 public void onClick(View v) {
                     if (onRecyclerViewItemClickListener != null) {
-                        onRecyclerViewItemClickListener.onItemClick(getAdapterPosition(), view);
+                        //onRecyclerViewItemClickListener.onItemClick(getAdapterPosition(), view);
                     }
                 }
             });
         }
     }
+
 }

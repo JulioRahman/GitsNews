@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorAccent">
+<LinearLayout
+    android:id="@+id/line1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    android:layout_weight="0.5">
+    <ImageView
+        android:id="@+id/image1"
+        android:src="@drawable/icongroup"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="About Us"
+        android:textColor="@color/colorAccent"
+        android:textSize="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_gravity="center"/>
+</LinearLayout>
+
+
+    <android.support.v7.widget.CardView
+        android:layout_marginTop="-20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/t1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Developers"
+                    android:textSize="20dp"
+                    android:padding="5dp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/r2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dev"
+                    android:textSize="18dp"
+                    android:padding="5dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/t2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Description"
+                    android:textSize="20dp"
+                    android:padding="5dp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp">
+                <TextView
+                    android:id="@+id/r3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/deskripsi"
+                    android:textSize="18dp"
+                    android:padding="5dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+        <LinearLayout
+            android:id="@+id/line2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:layout_gravity="center"
+            android:gravity="top"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            android:paddingBottom="5dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_marginBottom="15dp"
+                android:text="Version 0.1"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</FrameLayout>

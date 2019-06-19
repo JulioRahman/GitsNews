@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Gits News</string>
+    <string name="dev">Fakry Permana, Cahya Gumilang, Julio Rahman, Revi Nur, Aji P Santoso</string>
+    <string name="deskripsi">GITS news adalah aplikasi untuk membaca berita dan mengetahui info terkini dilengkapi dengan fitur- fitur yang memudahkan pengguna  </string>
+    <string name="title_activity_sidebar">GITS news</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title"></string>
+    <string name="nav_header_subtitle"></string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_about">About</string>
+
 </resources>
