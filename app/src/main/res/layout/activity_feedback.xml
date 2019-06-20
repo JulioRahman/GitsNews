@@ -51,7 +51,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Name"
-                        android:textSize="20dp"
+                        android:textSize="20sp"
                         android:padding="5dp"
                         android:textStyle="bold"/>
                 </LinearLayout>
@@ -66,7 +66,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:maxLines="1"
-                        android:padding="5dp" />
+                        android:padding="5dp"
+                        android:inputType="textPersonName"
+                        android:importantForAutofill="no" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -79,7 +81,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Description"
-                        android:textSize="20dp"
+                        android:textSize="20sp"
                         android:padding="5dp"
                         android:textStyle="bold"/>
                 </LinearLayout>
@@ -95,10 +97,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/colorPrimary"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:lines="5"
                 android:maxLines="5"
-                android:padding="5dp" />
+                android:padding="5dp"
+                android:inputType="text"
+                android:importantForAutofill="no" />
 
         </LinearLayout>
                 <LinearLayout

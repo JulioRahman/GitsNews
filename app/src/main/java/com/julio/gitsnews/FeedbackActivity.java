@@ -22,7 +22,6 @@ public class FeedbackActivity extends AppCompatActivity {
 
     private EditText tvName, tvDesc;
     private RatingBar rbRate;
-    private Button bSubmit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +33,7 @@ public class FeedbackActivity extends AppCompatActivity {
         tvName = findViewById(R.id.tv_name_f);
         rbRate = findViewById(R.id.rating);
         tvDesc = findViewById(R.id.tv_desc_f);
-        bSubmit = findViewById(R.id.b_submit_f);
+        Button bSubmit = findViewById(R.id.b_submit_f);
 
         bSubmit.setOnClickListener(new View.OnClickListener() {
             @Override

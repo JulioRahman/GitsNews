@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:text="About Us"
         android:textColor="#FFF"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:layout_marginBottom="30dp"
         android:layout_gravity="center"/>
 </LinearLayout>
@@ -54,7 +54,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Developers"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:padding="5dp"
                     android:textStyle="bold"/>
             </LinearLayout>
@@ -67,7 +67,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/dev"
-                    android:textSize="18dp"
+                    android:textSize="18sp"
                     android:padding="5dp" />
             </LinearLayout>
             <LinearLayout
@@ -80,7 +80,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Description"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:padding="5dp"
                     android:textStyle="bold"/>
             </LinearLayout>
@@ -88,14 +88,14 @@
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:orientation="horizontal"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_marginBottom="30dp">
                 <TextView
                     android:id="@+id/r3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/deskripsi"
-                    android:textSize="18dp"
+                    android:textSize="18sp"
                     android:padding="5dp" />
             </LinearLayout>
         </LinearLayout>

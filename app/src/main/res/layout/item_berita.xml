@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     android:clickable="true"
     android:layout_marginTop="8dp"
-    android:elevation="1px">
+    android:elevation="1px"
+    android:focusable="true">
 
     <LinearLayout
         android:layout_margin="8dp"

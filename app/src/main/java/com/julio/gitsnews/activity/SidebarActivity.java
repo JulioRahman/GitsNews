@@ -36,8 +36,7 @@ import retrofit2.Response;
 public class SidebarActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    BeritaAdapter beritaAdapter;
-    private String kategori;
+    private BeritaAdapter beritaAdapter;
     private SliderLayout slSlider;
 
     @Override
@@ -55,14 +54,15 @@ public class SidebarActivity extends AppCompatActivity
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
+        String kategori;
         if(!TextUtils.isEmpty(getIntent().getStringExtra("kategori"))) {
             kategori = getIntent().getStringExtra("kategori");
         } else {
             kategori = "home";
         }
 
-        slSlider = (SliderLayout) findViewById(R.id.slider);
-        final HashMap<String,String> url_maps = new HashMap<String, String>();
+        slSlider = findViewById(R.id.slider);
+        final HashMap<String,String> url_maps = new HashMap<>();
 
         final RecyclerView mainRecycler = findViewById(R.id.activity_main_rv);
 
@@ -74,10 +74,8 @@ public class SidebarActivity extends AppCompatActivity
 
         if (kategori.equals("home")) {
             call = apiService.getNewsList();
-            Log.d("uwu", "onCreate: hilih"+call.toString());
         } else {
             call = apiService.getNewsCategory(kategori);
-            Log.d("uwu", "onCreate: hilih"+call.toString());
         }
 
         call.enqueue(new Callback<List<BeritaModel>>() {
@@ -109,20 +107,6 @@ public class SidebarActivity extends AppCompatActivity
                     slSlider.addSlider(textSliderView);
                 }
 
-//                beritaAdapter = new BeritaAdapter(beritaModelList, new OnRecyclerViewItemClickListener() {
-//                    @Override
-//                    public void onPositionClicked(int position) {
-//                        Intent i = new Intent(getApplicationContext(), DetailActivity.class);
-//                        i.putExtra("id", String.valueOf(position));
-//                        startActivity(i);
-//                    }
-//
-//                    @Override
-//                    public void onLongClicked(int position) {
-//
-//                    }
-//                });
-
                 mainRecycler.setAdapter(beritaAdapter);
                 Log.d("wadidaw", "onResponse: "+beritaModelList.get(1).getThumbnail());
             }
@@ -149,7 +133,6 @@ public class SidebarActivity extends AppCompatActivity
         }
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.

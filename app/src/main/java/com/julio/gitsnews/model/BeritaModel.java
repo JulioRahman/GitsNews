@@ -28,55 +28,28 @@ public class BeritaModel {
         return idBerita;
     }
 
-    public void setIdBerita(String idBerita) {
-        this.idBerita = idBerita;
-    }
-
     public String getKategori() {
         return kategori;
-    }
-
-    public void setKategori(String kategori) {
-        this.kategori = kategori;
     }
 
     public String getJudul() {
         return judul;
     }
 
-    public void setJudul(String judul) {
-        this.judul = judul;
-    }
-
     public String getAuthor() {
         return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
     }
 
     public String getTanggal() {
         return tanggal;
     }
 
-    public void setTanggal(String tanggal) {
-        this.tanggal = tanggal;
-    }
-
     public String getThumbnail() {
         return thumbnail;
-    }
-
-    public void setThumbnail(String thumbnail) {
-        this.thumbnail = thumbnail;
     }
 
     public String getReview() {
         return review;
     }
 
-    public void setReview(String review) {
-        this.review = review;
-    }
 }

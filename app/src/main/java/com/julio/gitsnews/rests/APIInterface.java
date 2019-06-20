@@ -17,11 +17,9 @@ import retrofit2.http.Query;
 public interface APIInterface {
 
     @GET("berita/read.php")
-    //@GET("1bp4r5")
     Call<List<BeritaModel>> getNewsList();
 
     @GET("berita/read_detail.php")
-    //@GET("g388x")
     Call<DetailModel> getNewsDetail(@Query("id") String id);
 
     @GET("berita/read_by_category.php")

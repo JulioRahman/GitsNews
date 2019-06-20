@@ -11,8 +11,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FeedbackActivity"></activity>
-        <activity android:name=".activity.DetailActivity" />
+        <activity
+            android:name=".FeedbackActivity"
+            android:parentActivityName=".activity.SidebarActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.SidebarActivity"/>
+        </activity>
+
+        <activity
+            android:name=".activity.DetailActivity"
+            android:parentActivityName=".activity.SidebarActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.SidebarActivity"/>
+        </activity>
+
         <activity
             android:name=".splash.SplashActivity"
             android:theme="@style/SplashTheme">
@@ -22,16 +36,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".activity.SidebarActivity"
             android:label="@string/title_activity_sidebar"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
+
         <activity
             android:name=".activity.AboutActivity"
             android:parentActivityName=".activity.SidebarActivity">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".activity.SidebarActivity"/>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.SidebarActivity"/>
         </activity>
     </application>
 

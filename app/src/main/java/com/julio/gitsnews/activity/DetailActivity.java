@@ -18,7 +18,6 @@ import retrofit2.Response;
 
 public class DetailActivity extends AppCompatActivity {
 
-    private String id;
     private ImageView ivThumbnailD;
     private TextView tvJudulD, tvAuthorD, tvTanggalD, tvBeritaD;
 
@@ -27,7 +26,7 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        id = getIntent().getStringExtra("id");
+        String id = getIntent().getStringExtra("id");
 
         ivThumbnailD = findViewById(R.id.iv_thumbnail_d);
         tvJudulD = findViewById(R.id.tv_judul_d);

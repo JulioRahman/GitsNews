@@ -16,26 +16,22 @@ import com.bumptech.glide.Glide;
 import com.julio.gitsnews.R;
 import com.julio.gitsnews.activity.DetailActivity;
 import com.julio.gitsnews.model.BeritaModel;
-import com.julio.gitsnews.utils.OnRecyclerViewItemClickListener;
 
-import java.lang.ref.WeakReference;
 import java.util.List;
 
 public class BeritaAdapter extends RecyclerView.Adapter<BeritaAdapter.ViewHolder> {
-    private List<BeritaModel> beritaArrayList;
-    private Context context;
-    private OnRecyclerViewItemClickListener onRecyclerViewItemClickListener;
+    private final List<BeritaModel> beritaArrayList;
+    private final Context context;
 
-    public BeritaAdapter(Context context, List<BeritaModel> beritaArrayList/*, OnRecyclerViewItemClickListener onRecyclerViewItemClickListener*/) {
+    public BeritaAdapter(Context context, List<BeritaModel> beritaArrayList) {
         this.beritaArrayList = beritaArrayList;
         this.context = context;
-//        this.onRecyclerViewItemClickListener = onRecyclerViewItemClickListener;
     }
 
     @Override
     public BeritaAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_berita, viewGroup, false);
-        return new BeritaAdapter.ViewHolder(view/*, onRecyclerViewItemClickListener*/);
+        return new BeritaAdapter.ViewHolder(view);
     }
     @Override
     public void onBindViewHolder(BeritaAdapter.ViewHolder viewHolder, int position) {
@@ -77,39 +73,26 @@ public class BeritaAdapter extends RecyclerView.Adapter<BeritaAdapter.ViewHolder
         return beritaArrayList.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder /*implements View.OnClickListener*/{
-        private ImageView ivThumbnail;
-        private TextView tvJudul, tvReview, tvAuthor, tvTanggal, tvKategori;
-        private CardView cvItemBerita;
-        private WeakReference<OnRecyclerViewItemClickListener> listenerRef;
+    class ViewHolder extends RecyclerView.ViewHolder {
+        private final ImageView ivThumbnail;
+        private final TextView tvJudul;
+        private final TextView tvReview;
+        private final TextView tvAuthor;
+        private final TextView tvTanggal;
+        private final TextView tvKategori;
+        private final CardView cvItemBerita;
 
-        ViewHolder(View view/*, OnRecyclerViewItemClickListener listener*/) {
+        ViewHolder(View view) {
             super(view);
 
-//            listenerRef = new WeakReference<>(listener);
             tvJudul = view.findViewById(R.id.tv_judul);
             tvReview = view.findViewById(R.id.tv_review);
             tvAuthor = view.findViewById(R.id.tv_author);
             tvTanggal = view.findViewById(R.id.tv_tanggal);
             tvKategori = view.findViewById(R.id.tv_kategori);
             cvItemBerita = view.findViewById(R.id.cv_item_berita);
-            cvItemBerita.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (onRecyclerViewItemClickListener != null) {
-                        //onRecyclerViewItemClickListener.onItemClick(getAdapterPosition(), view);
-                    }
-                }
-            });
             ivThumbnail = view.findViewById(R.id.iv_thumbnail);
-
-//            cvItemBerita.setOnClickListener(this);
         }
-
-//        @Override
-//        public void onClick(View view) {
-//            listenerRef.get().onPositionClicked(getAdapterPosition());
-//        }
     }
 
 }
